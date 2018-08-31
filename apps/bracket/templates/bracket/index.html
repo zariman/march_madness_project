@@ -12,7 +12,7 @@
     <script src="{% static 'bracket/js/fullpage.interlockedSlides.min.js' %} "></script>
     <script src="{% static 'bracket/js/fullpage.extensions.min.js' %}"></script>
 
-    <link rel="stylesheet" href="{% static 'bracket/css/style.css' %}?version=1">
+    <link rel="stylesheet" href="{% static 'bracket/css/style.css' %}?version=3">
     <link rel="stylesheet" href="{% static 'bracket/css/fullpage.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>March Madness</title>
@@ -45,14 +45,15 @@
                     <a class="nav-link" href="#"><span onclick="openNav()">Run Algorithm</span></a>
                 </li>
             </ul>
-            <div>
-                <select class="form-control">
+            <form id='choose_year' action='/choose_year' method='POST'>
+                {% csrf_token %}
+                <select class="form-control" name='year'>
                     <option selected>Choose Year</option>
-                    <option>2017-2018</option>
-                    <option>2016-2017</option>
-                    <option>2015-2016</option>
+                    <option value="2017">2017 - 2018</option>
+                    <option value="2016">2016 - 2017</option>
+                    <option value="2015">2015 - 2016</option>
                 </select>
-            </div>
+            </form>
         </div>
     </nav>
 
@@ -62,13 +63,15 @@
         <!-- Button to close the overlay navigation -->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         
-        <h1>Algorithm</h1>
         <!-- Overlay content -->
         <div class="overlay-content">
-          <a href="#">About</a>
+            <form action="">
+
+            </form>
+          <!-- <a href="#">About</a>
           <a href="#">Services</a>
           <a href="#">Clients</a>
-          <a href="#">Contact</a>
+          <a href="#">Contact</a> -->
         </div>
       
     </div>
@@ -99,7 +102,7 @@
 
     <div id="wrapper">
         <div class="section" data-anchor="page1">
-            <div class="slide" data-anchor="south">
+            <div id="south" class="slide" data-anchor="south">
                 <div class="content bracket row">
                     <div class="col round1">
                         <div class="header">
@@ -108,6 +111,7 @@
                         <div class="match">
                             <div class="team"></div>
                             <div class="team"></div>
+                            <div class="compare"></div>
                         </div>
                         <div class="match">
                             <div class="team"></div>
@@ -183,17 +187,19 @@
                         </div>
                         <div class="match">
                             <div class="team"></div>
+                            <div class="team"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        <div class="slide" data-anchor="east">
+        <div id="east" class="slide" data-anchor="east">
             <div class="content bracket row">
                 <div class="col round4">
                     <div class="header">
                         <h5>Round 4</h5>
                     </div>
                     <div class="match">
+                        <div class="team"></div>
                         <div class="team"></div>
                     </div>
                 </div>
@@ -277,7 +283,7 @@
         </div>
     </div>
     <div class="section" data-anchor="page2">
-        <div class="slide" data-anchor="west">
+        <div id="west" class="slide" data-anchor="west">
             <div class="content bracket row">
                 <div class="col round1">
                     <div class="header">
@@ -361,17 +367,19 @@
                     </div>
                     <div class="match">
                         <div class="team"></div>
+                        <div class="team"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="slide" data-anchor="midwest">
+        <div id="midwest" class="slide" data-anchor="midwest">
             <div class="content bracket row">
                 <div class="col round4">
                     <div class="header">
                         <h5>Round 4</h5>
                     </div>
                     <div class="match">
+                        <div class="team"></div>
                         <div class="team"></div>
                     </div>
                 </div>
@@ -457,7 +465,7 @@
     
     </div>
 
-    <script src="{% static 'bracket/js/script.js' %}?version=2"></script>
+    <script src="{% static 'bracket/js/script.js' %}?version=4"></script>
     
 </body>
 </html>

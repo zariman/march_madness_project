@@ -10,7 +10,48 @@ new fullpage('#wrapper', {
 // $('.team').click(function(){
 //     $('#myModal').modal()
 // })
-var grab;
+
+// Insert teams for each round of tournament
+function insert_teams(region, response){
+    $("#"+region+' .round1 .team').each(function(i, team) {
+        $(team).html('<div class="school-score"><div class="school '+response[region]["round1"][i][2]+'">'+response[region]["round1"][i][0]+'</div><div class="score">'+response[region]["round1"][i][1]+'</div></div>');
+    });
+    $("#"+region+' .round2 .team').each(function(i, team) {
+        $(team).html('<div class="school-score"><div class="school '+response[region]["round2"][i][2]+'">'+response[region]["round2"][i][0]+'</div><div class="score">'+response[region]["round2"][i][1]+'</div></div>');             
+    });
+    $("#"+region+' .round3 .team').each(function(i, team) {
+        $(team).html('<div class="school-score"><div class="school '+response[region]["round3"][i][2]+'">'+response[region]["round3"][i][0]+'</div><div class="score">'+response[region]["round3"][i][1]+'</div></div>');
+    });
+    $("#"+region+' .round4 .team').each(function(i, team) {
+        $(team).html('<div class="school-score"><div class="school '+response[region]["round4"][i][2]+'">'+response[region]["round4"][i][0]+'</div><div class="score">'+response[region]["round4"][i][1]+'</div></div>');
+    });
+}
+
+// Submits ajax form
+$('#choose_year').submit(function(e){
+    e.preventDefault()
+
+    $.ajax({
+        url: $(this).attr('action'),
+        method: 'POST',
+        data: $(this).serialize(),
+        success: function(serverResponse){
+            response = serverResponse["march_madness_data"];
+            insert_teams("south", response);
+            insert_teams("east", response);
+            insert_teams("west", response);
+            insert_teams("midwest", response);
+        }
+    })
+});
+
+
+// Clicking on choose_year select submits a form
+$('#choose_year').change(function(){
+    // $('input[name=page_number]').val($(this).attr('data-value'))
+    $('#choose_year').submit();
+    return false;
+});
 
 $('.team').on('click', function(event){
     fullpage_api.setMouseWheelScrolling(false);
@@ -23,21 +64,21 @@ $('.team').on('click', function(event){
             $.get({
                 url: '/dropup',
                 success: function(response){
-                    $(event.currentTarget).html(response);
+                    $(event.currentTarget).prepend(response);
                     $('.searchInput', event.currentTarget).focus();
-
                 }
             });
         }else{
             $.get({
                 url: '/dropdown',
                 success: function(response){
-                    $(event.currentTarget).html(response);
+                    $(event.currentTarget).prepend(response);
                     $('.searchInput', event.currentTarget).focus();
                 }
             });
         }
     }
+    $('.searchInput', event.currentTarget).focus();
     if(!$(event.target).hasClass('searchInput')){
         filterFunctionReset($(this));
     }
@@ -61,12 +102,6 @@ $(document).on('click', function() {
 $('.team').click(function(e){
     e.stopPropagation();
 });
-
-// $('.dropdown-content').on('shown', function(){
-//     $('body').css('overflow', 'hidden');
-// }).on('hidden', function(){
-//     $('body').css('overflow', 'auto');
-// })
 
 $(document).on('keyup', '.searchInput', function(){ 
     var filter, ul, li, a, i;

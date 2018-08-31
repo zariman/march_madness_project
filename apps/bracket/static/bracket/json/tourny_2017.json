@@ -1,0 +1,162 @@
+{
+    "south" : {
+        "round1" : [
+            ["Virginia",54,"L"],
+            ["UMBC",74,"W"],
+            ["Creighton",59,"L"],
+            ["Kansas State",69,"W"],
+            ["Kentucky",78,"W"],
+            ["Davidson",73,"L"],
+            ["Arizona",68,"L"],
+            ["Buffalo",89,"W"],
+            ["Miami (FL)",62,"L"],
+            ["Loyola (IL)",64,"W"],
+            ["Tennessee",73,"W"],
+            ["Wright State",47,"L"],
+            ["Nevada",87,"W"],
+            ["Texas",83,"L"],
+            ["Cincinnati",68,"W"],
+            ["Georgia State",53,"L"]
+        ],
+        "round2" : [
+            ["UMBC",43,"L"],
+            ["Kansas State",50,"W"],
+            ["Kentucky",95,"W"],
+            ["Buffalo",75,"L"],
+            ["Loyola (IL)",63,"W"],
+            ["Tennessee",62,"L"],
+            ["Nevada",75,"W"],
+            ["Cincinnati",73,"L"]
+        ],
+        "round3" : [
+            ["Kansas State",61,"W"],
+            ["Ketucky",58,"L"],
+            ["Loyola (IL)",69,"W"],
+            ["Nevada",68,"L"]
+        ],
+        "round4" : [
+            ["Kansas State",62,"L"],
+            ["Loyola (IL)",78,"W"]
+        ]
+    },
+    "east" : {
+        "round1" : [
+            ["Vilanova",87,"W"],
+            ["Radford",61,"L"],
+            ["Virginia Tech",83,"L"],
+            ["Alabama",86,"W"],
+            ["West Virginia",85,"W"],
+            ["Murray State",68,"L"],
+            ["Wichita State",75,"L"],
+            ["Marshall",81,"W"],
+            ["Florida",77,"W"],
+            ["St. Bonaventure",62,"L"],
+            ["Texas Tech",70,"W"],
+            ["Stephen F. Austin",60,"L"],
+            ["Arkansas",62,"L"],
+            ["Butler",79,"W"],
+            ["Purdue",74,"W"],
+            ["Cal State Fullerton",48,"L"]
+        ],
+        "round2" : [
+            ["Villanova",81,"W"],
+            ["Alabama",58,"L"],
+            ["West Virginia",94,"W"],
+            ["Marshall",71,"L"],
+            ["Florida",66,"L"],
+            ["Texas Tech",69,"W"],
+            ["Butler",73,"L"],
+            ["Purdue",76,"W"]
+        ],
+        "round3" : [
+            ["Vilanova",90,"W"],
+            ["West Virginia",78,"L"],
+            ["Texas Tech",78,"W"],
+            ["Purdue",65,"L"]
+        ],
+        "round4" : [
+            ["Villanova",71,"W"],
+            ["Texas Tech",59,"L"]
+        ]
+    },
+    "west" : {
+        "round1" : [
+            ["Xavier",102,"W"],
+            ["Texas Southern",83,"L"],
+            ["Missouri",54,"L"],
+            ["Florida State",67,"W"],
+            ["Ohio State",81,"W"],
+            ["South Dakota State",73,"L"],
+            ["Gonzaga",68,"W"],
+            ["NC-Greensboro",64,"L"],
+            ["Houston",67,"W"],
+            ["San Diego State",65,"L"],
+            ["Michigan",61,"W"],
+            ["Montana",47,"L"],
+            ["Texas A&M",73,"W"],
+            ["Providence",69,"L"],
+            ["UNC",84,"W"],
+            ["Lipscomb",66,"L"]
+        ],
+        "round2" : [
+            ["Xavier",70,"L"],
+            ["Florida State",75,"W"],
+            ["Ohio State",84,"L"],
+            ["Gonzaga",90,"W"],
+            ["Houston",63,"L"],
+            ["Michigan",64,"W"],
+            ["Texas A&M",86,"W"],
+            ["UNC",65,"L"]
+        ],
+        "round3" : [
+            ["Florida State",75,"W"],
+            ["Gonzaga",60,"L"],
+            ["Michigan",99,"W"],
+            ["Texas A&M",72,"L"]
+        ],
+        "round4" : [
+            ["Florida State",54,"L"],
+            ["Michigan",58,"W"]
+        ]
+    },
+    "midwest" : {
+        "round1" : [
+            ["Kansas",76,"W"],
+            ["Penn State",60,"L"],
+            ["Seton Hall",94,"W"],
+            ["North Carolina State",83,"L"],
+            ["Clemson",79,"W"],
+            ["New Mexico State",68,"L"],
+            ["Auburn",62,"W"],
+            ["College of Charleston",58,"L"],
+            ["Texas Christian",52,"L"],
+            ["Syracuse",77,"W"],
+            ["Michigan State",82,"W"],
+            ["Bucknell",78,"L"],
+            ["Rhode Island",83,"W"],
+            ["Oklahoma",78,"L"],
+            ["Duke",89,"W"],
+            ["Iona",67,"L"]
+        ],
+        "round2" : [
+            ["Kansas",83,"W"],
+            ["Seton Hall",79,"L"],
+            ["Clemson",84,"W"],
+            ["Auburn",53,"L"],
+            ["Syracuse",55,"W"],
+            ["Michigan State",53,"L"],
+            ["Rhode Island",62,"L"],
+            ["Duke",87,"W"]
+        ],
+        "round3" : [
+            ["Kansas",80,"W"],
+            ["Clemson",76,"L"],
+            ["Syracuse",65,"L"],
+            ["Duke",69,"W"]
+        ],
+        "round4" : [
+            ["Kansas",85,"W"],
+            ["Duke",81,"L"]
+        ]
+    }
+}

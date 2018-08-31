@@ -3,11 +3,17 @@ from django.http import JsonResponse
 import json
 
 with open ("C:/Users/tmcgr/OneDrive/Documents/Coding Dojo/Project/march_madness/apps/bracket/static/bracket/json/final_merged.json") as data_file:
-    data = json.load(data_file)
+    team_data = json.load(data_file)
+
+with open ("C:/Users/tmcgr/OneDrive/Documents/Coding Dojo/Project/march_madness/apps/bracket/static/bracket/json/tourny_2017.json") as data_file:
+    march_madness_data = json.load(data_file)
+
+print(march_madness_data['south'])
 
 teamlist = []
+south_round1_2017 = []
 
-for team in data:
+for team in team_data:
     teamlist.append(team['School'])
 
 def index(request):
@@ -27,3 +33,11 @@ def dropup(request):
     }
 
     return render(request, 'bracket/dropup.html', context)
+
+def choose_year(request):
+    if request.POST['year'] == "2017":
+        context = {
+            "march_madness_data": march_madness_data,
+        }
+    
+    return JsonResponse(context)
