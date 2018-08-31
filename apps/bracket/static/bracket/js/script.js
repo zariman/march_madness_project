@@ -27,6 +27,12 @@ function insert_teams(region, response){
     });
 }
 
+function insert_compare(){
+    $('.match').each(function(i, match){
+        $(match).append('<div class="compare"></div>');
+    });
+}
+
 // Submits ajax form
 $('#choose_year').submit(function(e){
     e.preventDefault()
@@ -41,6 +47,7 @@ $('#choose_year').submit(function(e){
             insert_teams("east", response);
             insert_teams("west", response);
             insert_teams("midwest", response);
+            insert_compare();
         }
     })
 });
