@@ -14,17 +14,8 @@
     outline: none;
     border-radius: 50%;
     position: relative;
-    top: 0%;
-    transform: translateY(-50%);
+    top: -25%;
 }
-/* .compare {
-    position: relative;
-    bottom: 37.5px;
-    left: 275px;
-    padding: 3px 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-} */
 
 /* The Overlay (background) */
 .overlay {
@@ -115,6 +106,35 @@
 
 /* The search field when it gets focus/clicked on */
 .searchInput:focus { box-shadow: 0px 0px 30px 0px rgba(102,176,189,0.75); }
+
+.compare-list {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    border: 1px solid darkgray;
+    border-radius:0.25em 0.25em 0.25em 0.25em;
+    z-index: 1;
+}
+    .compare-list tbody{
+        display: block;
+        overflow: auto;
+        height: 350px;
+        width: 100%;
+    }
+    .compare-list thead tr{
+        display: block;
+    }
+    .compare-list td{
+        width: 33.33% !important;
+        text-align: center;
+    }
+    .compare-list th{
+        width: 33.33% !important;
+    }
+    .compare-list thead th{
+        text-align: center;
+        width: 33.33% !important;
+    }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {

@@ -30,7 +30,7 @@
         ],
         "round3" : [
             ["Kansas State",61,"W"],
-            ["Ketucky",58,"L"],
+            ["Kentucky",58,"L"],
             ["Loyola (IL)",69,"W"],
             ["Nevada",68,"L"]
         ],
@@ -41,7 +41,7 @@
     },
     "east" : {
         "round1" : [
-            ["Vilanova",87,"W"],
+            ["Villanova",87,"W"],
             ["Radford",61,"L"],
             ["Virginia Tech",83,"L"],
             ["Alabama",86,"W"],
@@ -69,7 +69,7 @@
             ["Purdue",76,"W"]
         ],
         "round3" : [
-            ["Vilanova",90,"W"],
+            ["Villanova",90,"W"],
             ["West Virginia",78,"L"],
             ["Texas Tech",78,"W"],
             ["Purdue",65,"L"]

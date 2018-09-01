@@ -4,6 +4,7 @@ new fullpage('#wrapper', {
     loopHorizontal: false,
 });
 
+var csrfVar = $('meta[name="csrf-token"]').attr('content');
 
 // $.fn.fullpage.setAllowScrolling(false);
 
@@ -29,11 +30,11 @@ function insert_teams(region, response){
 
 function insert_compare(){
     $('.match').each(function(i, match){
-        $(match).append('<div class="compare"></div>');
+        $(match).append('<div class="compare"><form action="/compare" method="POST">'+csrfVar+'<input type="hidden" name="team1" value="'+$(match).find('.school').eq(0).text()+'"><input type="hidden" name="team2" value="'+$(match).find('.school').eq(1).text()+'"></form></div>');
     });
 }
 
-// Submits ajax form
+// Makes ajax call after choose_year is submitted
 $('#choose_year').submit(function(e){
     e.preventDefault()
 
@@ -53,13 +54,14 @@ $('#choose_year').submit(function(e){
 });
 
 
-// Clicking on choose_year select submits a form
+// Clicking on choose_year dropdown submits a form
 $('#choose_year').change(function(){
     // $('input[name=page_number]').val($(this).attr('data-value'))
     $('#choose_year').submit();
     return false;
 });
 
+// Clicking on team shows a drop list which contains all teams
 $('.team').on('click', function(event){
     fullpage_api.setMouseWheelScrolling(false);
     $('.dropdown-content').not($(this).children('.dropdown-content')).removeClass('show');
@@ -94,22 +96,67 @@ $('.team').on('click', function(event){
         $('.dropdown-content').removeClass("show");
         $('.searchInput').val('');
     }
-    // $(event.target).find('.searchInput').focus();
 });
 
-// TODO: reset scrollbar position to top after exiting dropdown list
-$(document).on('click', function() {
-    fullpage_api.setMouseWheelScrolling(true);
-    $('.dropdown-content').removeClass("show");
-    console.log($('.list:first'));
-    // $(".list").prop({ scrollTop: $(".list").prop("scrollHeight") });
-    $('.searchInput').val('');
+
+// Clicking on compare shows a drop list which shows stat comparison for opposing teams
+var $element;
+$(document).on('click', '.compare', function(event){
+    if($(event.target).hasClass('compare')){
+        fullpage_api.setMouseWheelScrolling(false);
+        $('.compare-list').not($(this).children('.compare-list')).removeClass('show');
+        if(!$(this).children('.compare-list').hasClass('show')){
+            $(this).children('.compare-list').addClass("show");
+        }
+        if(!$(event.target).find('.compare-list').length){
+            $element = $(this);
+            $(this).submit();
+        }
+        return false;
+    }
+});
+
+$(document).on('submit', ('form', $element), function(event){
+    if($(event.target).hasClass('compare')){
+        event.preventDefault()
+    
+        if($(event.target).hasClass("bottom")){
+            $.post({
+                url: $(event.target).find('form').attr('action'),
+                data: $(event.target).find('form').serialize(),
+                success: function(response){
+                    $(event.target).append(response);
+                }
+            });
+        }else{
+            $.post({
+                url: $(event.target).find('form').attr('action'),
+                data: $(event.target).find('form').serialize(),
+                success: function(response){
+                    $(event.target).append(response);
+                }
+            });
+        }
+    }
 });
 
 $('.team').click(function(e){
     e.stopPropagation();
 });
 
+// TODO: reset scrollbar position to top after exiting dropdown list
+$(document).on('click', function(event) {
+    if(!$(event.target).hasClass('compare')){
+        fullpage_api.setMouseWheelScrolling(true);
+        $('.dropdown-content').removeClass("show");
+        $('.compare-list').removeClass("show");
+        // console.log($('.list:first'));
+        // $(".list").prop({ scrollTop: $(".list").prop("scrollHeight") });
+        $('.searchInput').val('');
+    }
+});
+
+// Search team function in drop list
 $(document).on('keyup', '.searchInput', function(){ 
     var filter, ul, li, a, i;
     filter = this.value.toUpperCase();

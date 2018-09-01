@@ -1,28 +1,23 @@
-<div class="compare-down">
+{% load custom_tags %}
+<div class="compare-list show">
     <table class="table">
         <thead>
             <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">{{ team1.School }}</th>
+            <th scope="col">{{ team2.School }}</th>
             </tr>
         </thead>
         <tbody>
+            {% for stat in stats %}
+            {% if stat != 'School' %}
             <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+                <th scope="row">{{ stat }}</th>
+                <td>{{ team1|keyvalue:stat }}</td>
+                <td>{{ team2|keyvalue:stat }}</td>
             </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            </tr>
+            {% endif %}
+            {% endfor %}
         </tbody>
     </table>
 </div>
